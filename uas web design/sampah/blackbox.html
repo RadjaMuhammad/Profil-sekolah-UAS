@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA Negeri 1 Bangun Jaya | Profil Sekolah</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dfaed788-deca-438e-9229-491a853bc643.png') no-repeat center center;
+            background-size: cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-section {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
+        .feature-box {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            text-align: center;
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .facilities-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .facility-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .facility-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .teachers-section {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+
+        .teacher-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .teacher-img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: rotate(15deg);
+        }
+
+        .testimonial-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(231, 76, 60, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 15px;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-links h5 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #c0392b;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation-name: fadeInUp;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8461dd19-837a-4011-9c86-25e744548d30.png" alt="Logo SMA Negeri 1 Bangun Jaya - Ikon sekolah dengan bentuk perisai berwarna biru dan emas">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#facilities">Fasilitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#teachers">Guru</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="mb-4 animate">SMA Negeri 1 Bangun Jaya</h1>
+                    <p class="mb-4 animate">Sekolah Unggulan Berbasis Teknologi dengan Pendidikan Berkualitas dan Pengembangan Karakter</p>
+                    <a href="#about" class="btn btn-primary-custom btn-lg animate">Kenali Kami Lebih Dekat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title animate">Tentang Sekolah Kami</h2>
+                    <p class="animate">SMA Negeri 1 Bangun Jaya berdiri sejak tahun 1985 dan telah mencetak lulusan yang berkualitas dengan prestasi di berbagai bidang.</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 animate">
+                    <div class="about-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83a7e8c9-717b-48ae-93b4-0db03b235512.png" alt="Gedung utama SMA Negeri 1 Bangun Jaya dengan arsitektur modern dan taman depan yang luas" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 animate">
+                    <h3>Sekolah Berprestasi dengan Beragam Keunggulan</h3>
+                    <p>SMA Negeri 1 Bangun Jaya merupakan sekolah unggulan di kota ini dengan berbagai prestasi baik akademik maupun non-akademik. Kami memiliki visi untuk membentuk generasi muda yang berkarakter, cerdas, dan mampu bersaing di era global.</p>
+                    <p>Dengan guru-guru yang profesional dan fasilitas lengkap, kami berkomitmen untuk memberikan pendidikan terbaik bagi peserta didik.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <h4>Prestasi</h4>
+                                <p>100+ medali dalam kompetisi nasional dan internasional selama 5 tahun terakhir</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="feature-box">
+                                <div class="feature-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4>Lulusan</h4>
+                                <p>90% lulusan diterima di PTN favorit dan berbagai universitas ternama</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities-section" id="facilities">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title animate">Fasilitas Sekolah</h2>
+                    <p class="animate">Kami menyediakan berbagai fasilitas lengkap untuk mendukung proses belajar mengajar yang optimal</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 animate">
+                    <div class="facility-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e84182e3-5fa5-4c56-8896-8d263316204c.png" class="card-img-top facility-img" alt="Laboratorium komputer modern dengan 30 unit PC terbaru dan AC">
+                        <div class="card-body">
+                            <h5 class="card-title">Laboratorium Komputer</h5>
+                            <p class="card-text">Laboratorium modern dengan 30 unit komputer terbaru dan jaringan internet berkecepatan tinggi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate">
+                    <div class="facility-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/54079a6a-0eb5-4cbc-a303-9b3dd7ba2291.png" class="card-img-top facility-img" alt="Perpustakaan yang luas dengan rak buku tinggi dan ruang baca yang nyaman">
+                        <div class="card-body">
+                            <h5 class="card-title">Perpustakaan</h5>
+                            <p class="card-text">Perpustakaan dengan koleksi lebih dari 10.000 judul buku dan ruang baca yang nyaman.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate">
+                    <div class="facility-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/33cc53b8-a557-4055-84f8-f661c135edcb.png" class="card-img-top facility-img" alt="Lapangan basket dengan lantai kayu profesional dan pencahayaan lengkap">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Olahraga</h5>
+                            <p class="card-text">Lapangan basket, voli, dan futsal standar nasional untuk pengembangan bakat olahraga.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4 animate">
+                    <div class="facility-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f874346c-282b-406e-a288-a5df7885a6d1.png" class="card-img-top facility-img" alt="Laboratorium kimia lengkap dengan alat percobaan modern dan safety equipment">
+                        <div class="card-body">
+                            <h5 class="card-title">Lab IPA</h5>
+                            <p class="card-text">Laboratorium Fisika, Kimia, dan Biologi yang lengkap untuk praktik sains.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate">
+                    <div class="facility-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1b85e2b0-b911-4d3b-9c62-7e5bcf4d75e7.png" class="card-img-top facility-img" alt="Aula serbaguna besar dengan panggung dan kapasitas 500 orang">
+                        <div class="card-body">
+                            <h5 class="card-title">Aula Serbaguna</h5>
+                            <p class="card-text">Aula dengan kapasitas 500 orang untuk berbagai acara sekolah dan kegiatan ekstrakurikuler.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate">
+                    <div class="facility-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/66e41c93-6717-4a71-8b10-2dd0f5a3cea3.png" class="card-img-top facility-img" alt="Kantin modern dengan meja dan kursi ergonomis serta menu makanan sehat">
+                        <div class="card-body">
+                            <h5 class="card-title">Kantin Sehat</h5>
+                            <p class="card-text">Kantin dengan standar higienis tinggi menyediakan makanan bergizi seimbang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers-section" id="teachers">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title animate">Guru Kami</h2>
+                    <p class="animate">Bertemu dengan tim pengajar profesional kami yang berdedikasi tinggi dalam pendidikan</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 animate">
+                    <div class="teacher-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3db28497-bfcd-4082-abf1-0b74d6906df9.png" class="card-img-top teacher-img" alt="Drs. Budi Santoso, M.Pd - Guru Matematika dengan kacamata dan jas formal, tersenyum ramah">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Drs. Budi Santoso, M.Pd</h5>
+                            <p class="text-muted">Guru Matematika</p>
+                            <div class="mt-3">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate">
+                    <div class="teacher-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ec665bb1-ca37-4a95-962b-c37886642892.png" class="card-img-top teacher-img" alt="Dra. Siti Rahayu, M.Si - Guru Fisika dengan outfit batik formal dan pose profesional">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dra. Siti Rahayu, M.Si</h5>
+                            <p class="text-muted">Guru Fisika</p>
+                            <div class="mt-3">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate">
+                    <div class="teacher-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c95755f4-c223-4ffe-b9f0-27f2ee8573b1.png" class="card-img-top teacher-img" alt="Yusuf Abdullah, S.Pd - Guru Bahasa Inggris dengan gaya casual modern dan ekspresi bersahabat">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Yusuf Abdullah, S.Pd</h5>
+                            <p class="text-muted">Guru Bahasa Inggris</p>
+                            <div class="mt-3">
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 animate">
+                    <div class="teacher-card">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8eb4807b-2218-4d61-a2eb-6a3af663ebc3.png" class="card-img-top teacher-img" alt="Dian Permatasari, M.Pd - Guru Seni Budaya dengan busana etnik dan senyum ramah">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dian Permatasari, M.Pd</h5>
+                            <p class="text-muted">Guru Seni Budaya</p>
+                            <div class="mt-3">
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section" id="testimonials">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title animate">Apa Kata Mereka</h2>
+                    <p class="animate">Testimoni dari orang tua, alumni, dan mitra sekolah</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 animate">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="mb-4">"Putra saya berkembang sangat pesat di sekolah ini, tidak hanya akademik tapi juga karakter dan kepemimpinannya."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dc7620d3-be09-407e-9733-ff233caa8e59.png" alt="Foto Bapak Andi - Orang tua siswa dengan kemeja formal dan ekspresi puas" class="rounded-circle me-3">
+                                <div>
+                                    <h6 class="mb-0">Bapak Andi</h6>
+                                    <small>Orang Tua Siswa</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="mb-4">"Pendidikan di SMA Negeri 1 Bangun Jaya memberikan fondasi yang kuat untuk karir saya di dunia teknologi."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7ca83e1c-9f17-4f3e-85a0-8990d1d57a6c.png" alt="Foto Rina - Alumni tahun 2015 dengan gaya profesional dan senyum percaya diri" class="rounded-circle me-3">
+                                <div>
+                                    <h6 class="mb-0">Rina</h6>
+                                    <small>Alumni 2015 - Software Engineer</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="mb-4">"Sebagai mitra industri, kami melihat lulusan SMA ini memiliki keahlian dan etos kerja yang sangat baik."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/da631db4-80fc-45ce-a7fa-c4e19d805b1f.png" alt="Foto Ibu Dewi - HRD Perusahaan Teknologi dengan busana kantor formal dan penampilan profesional" class="rounded-circle me-3">
+                                <div>
+                                    <h6 class="mb-0">Ibu Dewi</h6>
+                                    <small>HRD Perusahaan Teknologi</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title animate">Hubungi Kami</h2>
+                    <p class="animate">Kami siap menjawab pertanyaan Anda kapan saja</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-5 animate">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Nama Anda" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Email Anda" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subjek">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="col-lg-6 animate">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info">
+                                <h5 class="mb-4">Alamat</h5>
+                                <p><i class="fas fa-map-marker-alt contact-icon"></i> Jl. Pendidikan No. 123, Kota Bangun Jaya</p>
+                                <div id="map" style="height: 200px; width: 100%; border-radius: 8px; background-color: #eee; margin-top: 15px;"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info">
+                                <h5 class="mb-4">Kontak</h5>
+                                <p><i class="fas fa-phone-alt contact-icon"></i> (021) 1234567</p>
+                                <p><i class="fas fa-envelope contact-icon"></i> info@sman1bj.sch.id</p>
+                                <p><i class="fas fa-clock contact-icon"></i> Senin-Jumat: 8.00-16.00</p>
+                                <div class="mt-4">
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/62df304d-5129-4dd1-9979-0bfa248035b3.png" alt="Logo SMA Negeri 1 Bangun Jaya - Versi footer dengan ukuran lebih kecil" class="mb-3">
+                    <p>SMA Negeri 1 Bangun Jaya merupakan sekolah unggulan yang berkomitmen untuk memberikan pendidikan terbaik dengan mengembangkan potensi siswa secara optimal.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <div class="footer-links">
+                        <h5>Link Cepat</h5>
+                        <ul>
+                            <li><a href="#">Beranda</a></li>
+                            <li><a href="#">Profil Sekolah</a></li>
+                            <li><a href="#">Akademik</a></li>
+                            <li><a href="#">PPDB</a></li>
+                            <li><a href="#">Galeri</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="footer-links">
+                        <h5>Program</h5>
+                        <ul>
+                            <li><a href="#">Ekstrakurikuler</a></li>
+                            <li><a href="#">Olimpiade Sains</a></li>
+                            <li><a href="#">Pramuka</a></li>
+                            <li><a href="#">Pembinaan Karakter</a></li>
+                            <li><a href="#">Kewirausahaan</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p>Berlangganan newsletter kami untuk mendapatkan informasi terbaru</p>
+                        <form class="mt-3">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email Anda">
+                                <button class="btn btn-secondary" type="button"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-0 mb-4" style="border-color: rgba(255,255,255,0.1)">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">© 2023 SMA Negeri 1 Bangun Jaya. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> for better education</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Navbar shrink effect
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('navbar-shrink');
+                document.querySelector('.navbar-brand img').style.height = '40px';
+            } else {
+                navbar.classList.remove('navbar-shrink');
+                document.querySelector('.navbar-brand img').style.height = '50px';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+            this.reset();
+        });
+
+        // Simple Google Maps embed
+        function initMap() {
+            // This is just a placeholder, in real implementation you would use Google Maps API
+            const mapElement = document.getElementById('map');
+            mapElement.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8191613507829!3d-6.1947413954933715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTEnNDEuMSJTIDEwNsKwNDknMTMuMCJF!5e0!3m2!1sen!2sid!4v1623412345678!5m2!1sen!2sid" width="100%" height="100%" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>';
+        }
+
+        // Initialize map when page loads
+        window.addEventListener('load', initMap);
+    </script>
+</body>
+</html>
+

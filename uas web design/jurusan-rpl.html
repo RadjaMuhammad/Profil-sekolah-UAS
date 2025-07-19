@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan Rekayasa Perangkat Lunak - SMK 5 Telkom Banda Aceh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+    <style>
+        .section-padding {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .hero-jurusan {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x500?text=Banner+RPL') no-repeat center center; /* Ganti dengan gambar banner RPL */
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .vision-mission-card {
+            min-height: 200px; /* Ensures consistent height for cards */
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--bs-primary); /* Bootstrap primary color */
+        }
+        .img-rpl-logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .facilitas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SMK 5 Telkom Banda Aceh</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profil.html">Profil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jurusan/Bidang Keahlian
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item active" href="jurusan-rpl.html">Rekayasa Perangkat Lunak</a></li>
+                            <li><a class="dropdown-item" href="jurusan-multimedia.html">Multimedia</a></li>
+                            <li><a class="dropdown-item" href="jurusan-tja.html">Teknik Jaringan Akses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-jurusan d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Rekayasa Perangkat Lunak (RPL)</h1>
+            <p class="lead mt-3">Membentuk Talenta Unggul di Bidang Pengembangan Perangkat Lunak</p>
+        </div>
+    </section>
+
+    <section id="kata-pengantar" class="section-padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="display-5 fw-bold text-primary mb-4">Membangun Masa Depan Digital</h2>
+                    <p class="lead">Selamat datang di halaman Jurusan Rekayasa Perangkat Lunak (RPL) SMK 5 Telkom Banda Aceh. Di era digital yang terus berkembang pesat ini, keahlian dalam mengembangkan perangkat lunak menjadi salah satu kunci utama kemajuan.</p>
+                    <p>Jurusan RPL hadir untuk mencetak generasi muda yang tidak hanya mampu menggunakan teknologi, tetapi juga berinovasi dan menciptakan solusi perangkat lunak yang relevan dengan kebutuhan industri. Kami berkomitmen untuk memberikan pendidikan terbaik dengan kurikulum yang selalu diperbarui, fasilitas modern, serta pengajar yang kompeten di bidangnya.</p>
+                    <p>Bergabunglah bersama kami untuk menjelajahi dunia coding, desain sistem, dan pengembangan aplikasi yang akan membentuk masa depan Anda sebagai seorang profesional IT handal!</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/asset/rpl.png" alt="Logo Jurusan RPL" class="img-fluid shadow-lg img-rpl-logo mb-3">
+                    <p class="text-muted">Logo Resmi Jurusan Rekayasa Perangkat Lunak</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visi-misi-tujuan" class="section-padding bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm vision-mission-card">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h4 class="mb-0 text-center"><i class="fas fa-eye me-2"></i> Visi & Misi RPL</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-primary fw-bold mb-3">Visi:</h5>
+                            <p class="mb-3">Menjadi Program Keahlian Rekayasa Perangkat Lunak yang Unggul dan Inovatif, Menghasilkan Tenaga Profesional yang Berakhlak Mulia, Kompeten, dan Siap Bersaing di Industri Global.</p>
+                            <h5 class="text-primary fw-bold mt-4 mb-3">Misi:</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0 px-0 py-1">1. Menyelenggarakan pendidikan dan pelatihan berbasis proyek dan industri.</li>
+                                <li class="list-group-item border-0 px-0 py-1">2. Mengembangkan kompetensi siswa dalam perancangan, pengembangan, dan pengujian perangkat lunak.</li>
+                                <li class="list-group-item border-0 px-0 py-1">3. Menjalin kerjasama erat dengan perusahaan IT dan lembaga pendidikan tinggi.</li>
+                                <li class="list-group-item border-0 px-0 py-1">4. Membekali siswa dengan kemampuan adaptasi teknologi dan soft skill yang kuat.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm vision-mission-card">
+                        <div class="card-header bg-success text-white py-3">
+                            <h4 class="mb-0 text-center"><i class="fas fa-bullseye me-2"></i> Tujuan RPL</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Tujuan spesifik dari Jurusan Rekayasa Perangkat Lunak adalah:</p>
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Mencetak lulusan yang mampu menganalisis, merancang, mengimplementasikan, dan memelihara aplikasi desktop, web, dan mobile.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Membekali lulusan dengan pemahaman tentang basis data, jaringan, dan keamanan perangkat lunak.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Menyiapkan lulusan untuk berkarir sebagai Junior Programmer, Web Developer, Mobile Developer, QA Engineer, atau wirausahawan di bidang IT.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Mengembangkan kemampuan berpikir logis, kreatif, dan pemecahan masalah pada siswa.
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fasilitas" class="section-padding bg-white">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center text-primary mb-5">Fasilitas Pendukung Pembelajaran RPL</h2>
+            <div class="facilitas-grid">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-desktop feature-icon text-info mb-3"></i>
+                        <h5 class="card-title fw-bold">Laboratorium Komputer Modern</h5>
+                        <p class="card-text">Dilengkapi PC spek tinggi, monitor dual-screen, dan koneksi internet cepat untuk praktik coding.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-code feature-icon text-success mb-3"></i>
+                        <h5 class="card-title fw-bold">Lisensi Software Resmi</h5>
+                        <p class="card-text">Akses penuh ke berbagai software pengembangan (IDE, database, OS) berlisensi.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-cloud feature-icon text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold">Server Pengembangan Khusus</h5>
+                        <p class="card-text">Server lokal dan cloud untuk deployment dan pengujian aplikasi skala kecil.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-wifi feature-icon text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">Jaringan Internal Stabil</h5>
+                        <p class="card-text">Infrastruktur jaringan yang handal mendukung kolaborasi dan akses sumber daya.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-chalkboard-teacher feature-icon text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Ruang Kelas Interaktif</h5>
+                        <p class="card-text">Dilengkapi proyektor, whiteboard interaktif, dan AC untuk kenyamanan belajar.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-book feature-icon text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold">Perpustakaan Digital & Fisik</h5>
+                        <p class="card-text">Akses ke buku, jurnal, dan sumber belajar online tentang pemrograman dan IT.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>© 2025 SMK 5 Telkom Banda Aceh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Smooth scrolling for internal links (optional)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

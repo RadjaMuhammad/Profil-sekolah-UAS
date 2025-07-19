@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan Teknik Jaringan Akses - SMK 5 Telkom Banda Aceh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+    <style>
+        .section-padding {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .hero-jurusan {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x500?text=Banner+TJA') no-repeat center center; /* Ganti dengan gambar banner TJA */
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .vision-mission-card {
+            min-height: 200px; /* Ensures consistent height for cards */
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--bs-primary); /* Bootstrap primary color */
+        }
+        .img-tja-logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .facilitas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SMK 5 Telkom Banda Aceh</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profil.html">Profil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jurusan/Bidang Keahlian
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="jurusan-rpl.html">Rekayasa Perangkat Lunak</a></li>
+                            <li><a class="dropdown-item" href="jurusan-multimedia.html">Multimedia</a></li>
+                            <li><a class="dropdown-item active" href="jurusan-tja.html">Teknik Jaringan Akses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-jurusan d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Teknik Jaringan Akses (TJA)</h1>
+            <p class="lead mt-3">Membangun Infrastruktur Jaringan Telekomunikasi Masa Depan</p>
+        </div>
+    </section>
+
+    <section id="kata-pengantar" class="section-padding bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="display-5 fw-bold text-success mb-4">Pakar Konektivitas</h2>
+                    <p class="lead">Selamat datang di halaman Jurusan Teknik Jaringan Akses (TJA) SMK 5 Telkom Banda Aceh. Di era di mana konektivitas adalah tulang punggung kehidupan modern, peran teknisi jaringan akses menjadi sangat krusial.</p>
+                    <p>Jurusan TJA mempersiapkan siswa untuk menjadi ahli dalam instalasi, konfigurasi, dan pemeliharaan berbagai jenis jaringan telekomunikasi, mulai dari fiber optik, nirkabel, hingga jaringan kabel tembaga. Kami menekankan praktik langsung dengan peralatan standar industri, didukung oleh instruktur berpengalaman dari dunia telekomunikasi.</p>
+                    <p>Jika Anda tertarik dengan dunia kabel, nirkabel, dan bagaimana internet bekerja, serta ingin menjadi bagian dari pembangunan infrastruktur telekomunikasi, TJA adalah jurusan yang tepat untuk Anda!</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="/asset/tja.png" alt="Logo Jurusan TJA" class="img-fluid rounded-circle shadow-lg img-tja-logo mb-3">
+                    <p class="text-muted">Logo Resmi Jurusan Teknik Jaringan Akses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visi-misi-tujuan" class="section-padding bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm vision-mission-card">
+                        <div class="card-header bg-success text-white py-3">
+                            <h4 class="mb-0 text-center"><i class="fas fa-eye me-2"></i> Visi & Misi TJA</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-success fw-bold mb-3">Visi:</h5>
+                            <p class="mb-3">Menjadi Program Keahlian Teknik Jaringan Akses yang Terdepan, Menghasilkan Teknisi Profesional yang Kompeten, Adaptif, dan Berkontribusi pada Infrastruktur Telekomunikasi Nasional.</p>
+                            <h5 class="text-success fw-bold mt-4 mb-3">Misi:</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0 px-0 py-1">1. Melaksanakan pendidikan berbasis standar industri telekomunikasi terkini.</li>
+                                <li class="list-group-item border-0 px-0 py-1">2. Mengembangkan kompetensi siswa dalam instalasi, pemeliharaan, dan troubleshooting jaringan akses.</li>
+                                <li class="list-group-item border-0 px-0 py-1">3. Membekali siswa dengan pengetahuan tentang teknologi fiber optik, nirkabel, dan kabel tembaga.</li>
+                                <li class="list-group-item border-0 px-0 py-1">4. Menjalin kerjasama dengan penyedia layanan telekomunikasi untuk magang dan sertifikasi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm vision-mission-card">
+                        <div class="card-header bg-danger text-white py-3">
+                            <h4 class="mb-0 text-center"><i class="fas fa-bullseye me-2"></i> Tujuan TJA</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Tujuan spesifik dari Jurusan Teknik Jaringan Akses adalah:</p>
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Mencetak lulusan yang mampu menginstalasi dan mengkonfigurasi perangkat jaringan akses telekomunikasi.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Membekali lulusan dengan kemampuan melakukan pemeliharaan dan perbaikan jaringan fiber optik.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Menyiapkan lulusan untuk berkarir sebagai Teknisi Jaringan Telekomunikasi, Teknisi Fiber Optik, atau Spesialis Instalasi Jaringan.
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex align-items-start border-0 px-0 py-1">
+                                    <div class="ms-2 me-auto">
+                                        Mengembangkan kemampuan pemecahan masalah dan kerja tim dalam lingkungan jaringan.
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fasilitas" class="section-padding bg-white">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center text-success mb-5">Fasilitas Pendukung Pembelajaran TJA</h2>
+            <div class="facilitas-grid">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-ethernet feature-icon text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Laboratorium Jaringan</h5>
+                        <p class="card-text">Dilengkapi router, switch, access point, dan perangkat jaringan aktif lainnya.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-fiber-optic-cable feature-icon text-info mb-3"></i>
+                        <h5 class="card-title fw-bold">Alat Instalasi Fiber Optik</h5>
+                        <p class="card-text">Mesin splicing, OTDR, optical power meter untuk praktik instalasi dan pengukuran FO.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-broadcast-tower feature-icon text-danger mb-3"></i>
+                        <h5 class="card-title fw-bold">Peralatan Wireless & Mikrotik</h5>
+                        <p class="card-text">Berbagai jenis antena, radio wireless, dan perangkat Mikrotik untuk konfigurasi jaringan nirkabel.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-tools feature-icon text-dark mb-3"></i>
+                        <h5 class="card-title fw-bold">Kit Tool Jaringan Lengkap</h5>
+                        <p class="card-text">Crimping tools, LAN tester, kabel UTP/STP, konektor, dan komponen pasif jaringan.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-server feature-icon text-warning mb-3"></i>
+                        <h5 class="card-title fw-bold">Server & Ruang Data Center Mini</h5>
+                        <p class="card-text">Simulasi lingkungan server dan data center untuk pemahaman infrastruktur.</p>
+                    </div>
+                </div>
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="fas fa-clipboard-list feature-icon text-secondary mb-3"></i>
+                        <h5 class="card-title fw-bold">Modul Praktikum Berbasis Industri</h5>
+                        <p class="card-text">Kurikulum dan modul yang disesuaikan dengan standar dan kebutuhan industri telekomunikasi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>© 2025 SMK 5 Telkom Banda Aceh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Smooth scrolling for internal links (optional)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

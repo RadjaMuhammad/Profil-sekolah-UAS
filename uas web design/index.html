@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK 5 Telkom Banda Aceh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Hero Section Full Screen */
+        .hero-section {
+            height: 100vh;
+            /* Membuat tinggi hero section sama dengan tinggi viewport */
+            min-height: 600px;
+            /* Optional: tinggi minimum agar konten tetap terlihat */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            /* Ganti dengan gambar banner sekolah Anda */
+            background: url('/asset/images\ \(1\)\ \(1\).jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            /* Warna teks putih untuk kontras dengan background gelap */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* Topbar - Awalnya tersembunyi di atas layar */
+        #topbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1031;
+            /* Pastikan di atas navbar */
+            transform: translateY(-100%);
+            /* Sembunyikan ke atas */
+            transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+            /* Transisi untuk muncul */
+            background-color: transparent !important;
+            /* Awalnya transparan */
+        }
+
+        /* Navbar utama - Selalu fixed di bawah topbar */
+        #mainNavbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            /* Akan diatur ulang oleh JS */
+            z-index: 1030;
+            /* Di bawah topbar */
+            background-color: transparent !important;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, top 0.3s ease-out;
+            /* Tambah top transition */
+            box-shadow: none !important;
+            /* Hilangkan shadow awal */
+        }
+
+        /* Warna teks dan brand untuk navbar transparan (saat belum di-scroll) */
+        #mainNavbar .navbar-brand .fw-bold,
+        /* Targeting old structure for compatibility if HTML not fully updated */
+        #mainNavbar .navbar-brand .navbar-brand-text span {
+            color: white !important;
+            /* Teks putih untuk logo dan nama sekolah */
+        }
+
+        #mainNavbar .navbar-brand .navbar-brand-text span:last-child {
+            color: rgba(255, 255, 255, 0.8) !important;
+            /* Khusus untuk "BANDA ACEH" jika perlu warna berbeda */
+        }
+
+        #mainNavbar .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            /* Link teks putih semi-transparan */
+        }
+
+        #mainNavbar .nav-link.active,
+        #mainNavbar .nav-link:hover {
+            color: white !important;
+            /* Link aktif/hover teks putih penuh */
+        }
+
+        #mainNavbar .navbar-toggler-icon {
+            filter: invert(1);
+            /* Untuk membuat ikon toggler putih di awal */
+        }
+
+        /* Kelas yang ditambahkan saat di-scroll */
+        .scrolled-active #topbar {
+            transform: translateY(0);
+            /* Topbar muncul */
+            background-color: #343a40 !important;
+            /* Warna background topbar saat muncul */
+        }
+
+        .scrolled-active #mainNavbar {
+            background-color: white !important;
+            /* Latar belakang navbar putih */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Tambahkan shadow */
+        }
+
+        /* Warna teks dan brand saat di-scroll (navbar solid) */
+        .scrolled-active #mainNavbar .navbar-brand .fw-bold,
+        /* Targeting old structure for compatibility if HTML not fully updated */
+        .scrolled-active #mainNavbar .navbar-brand .navbar-brand-text span {
+            color: #0d6efd !important;
+            /* Logo teks kembali ke warna primary Bootstrap */
+        }
+
+        .scrolled-active #mainNavbar .navbar-brand .navbar-brand-text span:last-child {
+            color: rgba(0, 0, 0, 0.7) !important;
+            /* Warna gelap untuk "BANDA ACEH" */
+        }
+
+        .scrolled-active #mainNavbar .nav-link {
+            color: rgba(0, 0, 0, 0.7) !important;
+            /* Link teks gelap */
+        }
+
+        .scrolled-active #mainNavbar .nav-link.active,
+        .scrolled-active #mainNavbar .nav-link:hover {
+            color: #0d6efd !important;
+            /* Link aktif/hover teks primary */
+        }
+
+        .scrolled-active #mainNavbar .navbar-toggler-icon {
+            filter: none;
+            /* Kembalikan ikon toggler ke warna defaultnya (gelap) */
+        }
+
+        /* Media query untuk menyembunyikan topbar di layar kecil jika tidak diinginkan */
+        @media (max-width: 991.98px) {
+            #topbar {
+                display: none !important;
+            }
+
+            #mainNavbar {
+                top: 0 !important;
+                /* Navbar tetap di paling atas di mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ! ===================================================================================================================================== -->
+    <!-- ! ============================================================== NAVBAR ===============================================================-->
+    <!-- ! ===================================================================================================================================== -->
+    <div id="topbar" class="bg-dark text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="topbar-info">
+            </div>
+            <div class="topbar-social">
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#beranda">
+                <img src="asset/Logo_SMKN5_Banda_Aceh.png" alt="Logo SMK" height="80" class="me-2">
+                <div class="navbar-brand-text">
+                    <span class="d-block fw-bold">SMK NEGERI 5 TELKOM</span>
+                    <span class="d-block text-nowrap" style="font-size: 0.9em;">BANDA ACEH</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" aria-current="page" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="profil.html">Profil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="#" id="jurusanDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Jurusan
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-full-width" style="margin-top: 32px;"
+                            aria-labelledby="jurusanDropdown">
+                            <li><a class="dropdown-item" href="/jurusan-rpl.html">Rekayasa Perangkat Lunak</a></li>
+                            <li><a class="dropdown-item" href="/jurusan-tja.html">Teknik Komputer Jaringan</a></li>
+                            <li><a class="dropdown-item" href="/jurusan-multimedia.html">Multimedia</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">SMK NEGERI 5 TELKOM BANDA ACEH</h1>
+            <p class="lead">Mencetak Generasi Unggul di Bidang Teknologi dan Komunikasi.</p>
+        </div>
+    </section>
+    <section id="konten-utama-setelah-hero" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-5 d-flex align-items-stretch">
+                    <div class="card w-100 shadow-sm">
+                        <div class="card-body p-0">
+                            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="/asset/487919472_18365823382133065_6496749799931035997_n.jpg"
+                                            class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/asset/504175762_18373946773133065_597951339352399389_n.jpg"
+                                            class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="/asset/487919472_18365823382133065_6496749799931035997_n.jpg"
+                                            class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-7 d-flex align-items-stretch">
+                    <div class="card w-100 shadow-sm">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="mb-0 fw-bold">Pengumuman</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><img src="wallhaven-kxy9p7.png" width="100"
+                                        class="img-fluid" alt="">PENERIMAAN SISWA BARU SMK NEGERI 5 TELKOM BANDA ACEH
+                                    TAHUN 2025</li>
+                                <li class="list-group-item">Item Pengumuman 2</li>
+                                <li class="list-group-item">Item Pengumuman 3</li>
+                                <li class="list-group-item">Item Pengumuman 4</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-light text-center py-3">
+                            <a href="#" class="text-primary fw-bold text-decoration-none">Lihat Semua <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 mt-md-4 d-flex align-items-stretch">
+                    <div class="card w-100 shadow-sm">
+                        <div class="card-body">
+                            <h5>Sambutan Kepala Sekolah</h5>
+                            <div class="d-flex">
+                                <div class="text-center me-3">
+                                    <img src="/asset/kepalasekolah.jpg" width="750" class="img-fluid" alt="">
+                                    <p class="mb-0 fw-medium mt-2">Herlina Dewi, S.Pd.I., M.Pd</p>
+                                    <small class="text-muted">Kepala Sekolah</small>
+                                </div>
+                                <p class="">Assalamu'alaikum Wr. Wb <br class=""><br> <span class="">Puji dan Syukur
+                                        kami panjatkan kehadirat Allah
+                                        SWT, Pencipta dan Pemelihara semesta alam.</span> <br><br><span>Langkah demi
+                                        langkah
+                                        telah kita jalani dengan rasa kebersamaan dalam meningkatkan kualitas siswa SMK
+                                        Negeri 5 Telkom Banda Aceh, yang kita bangakan ini.</span></p>
+                            </div>
+
+                            <div class="text-center mt-3">
+
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-secondary mt-3">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="berita" class="section-padding" style="background-color: #57B3DF;">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Berita Terbaru</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="asset/b5b6dae6-7331-49a7-9173-fc4a0b314817.jpg" class="card-img-top" alt="Berita 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Siswa SMK Negeri 5 Telkom yang telah mengikuti kegiatan LKS Tk.Nasional di Surabaya</h5>
+                            <p class="card-text">Ibu Dr. Herlina Dewi S.Pd.I,M.Pd beserta Guru dan Pengurus OSIS SMKN 5 Telkom mengunjungi Rumah Singgah BFLF (Blood For Life Foubdation) pada Senin 25 ...</p>
+                            <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="wallhaven-kxy9p7.png" class="card-img-top" alt="Berita 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Judul Berita 2</h5>
+                            <p class="card-text">Ringkasan singkat berita kedua. Konten ini bisa diperbarui secara
+                                dinamis dengan JavaScript jika diperlukan.</p>
+                            <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="wallhaven-kxy9p7.png" class="card-img-top" alt="Berita 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Judul Berita 3</h5>
+                            <p class="card-text">Ringkasan singkat berita ketiga. Pastikan untuk menjaga ringkasan ini
+                                tetap ringkas dan menarik.</p>
+                            <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="wallhaven-kxy9p7.png" class="card-img-top" alt="Berita 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Judul Berita 3</h5>
+                            <p class="card-text">Ringkasan singkat berita ketiga. Pastikan untuk menjaga ringkasan ini
+                                tetap ringkas dan menarik.</p>
+                            <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="wallhaven-kxy9p7.png" class="card-img-top" alt="Berita 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Judul Berita 3</h5>
+                            <p class="card-text">Ringkasan singkat berita ketiga. Pastikan untuk menjaga ringkasan ini
+                                tetap ringkas dan menarik.</p>
+                            <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="wallhaven-kxy9p7.png" class="card-img-top" alt="Berita 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Judul Berita 3</h5>
+                            <p class="card-text">Ringkasan singkat berita ketiga. Pastikan untuk menjaga ringkasan ini
+                                tetap ringkas dan menarik.</p>
+                            <a href="#" class="btn btn-outline-primary">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ! ========================================================================================================================== -->
+    <!-- ! ====================================================== PRESTASI ========================================================== -->
+    <!-- ! ========================================================================================================================== -->
+    <section id="prestasi" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Prestasi Terbaru</h2>
+            <p class="text-center lead mb-5 text-muted">Kebanggaan SMK 5 Telkom Banda Aceh dalam berbagai bidang.</p>
+
+            <div class="card mb-4 shadow-sm border-0">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-4">
+                        <img src="asset/Selamat kpd Siswa-i dan Bpk-Ibu pembimbing SMKN 5 Telkom atas prestasinya Juara harapan 3 pada F.jpg" class="img-fluid rounded-start" alt="Prestasi Hapkido">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Juara harapan 3 pada Festival Teater Berbahasa Aceh
+                            </h5>
+                            <p class="card-text"><small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 11
+                                    Juni 2023</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-trophy me-1"></i> Skala
+                                    Provinsi</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-user me-1"></i> SURYO
+                                    PRAMONO, S.Pd</small></p>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 shadow-sm border-0">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-4">
+                        <img src="asset/Selamat kpd Siswa-i dan Bpk-Ibu pembimbing SMKN 5 Telkom atas prestasinya Juara harapan 3 pada F.jpg" class="img-fluid rounded-start" alt="Prestasi Esai">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">meraih Juara 3 pada Lomba Kompetisi Siswa (LKS) SMK Tingkat Kota Banda Aceh Tahun 2025.
+                            </h5>
+                            <p class="card-text"><small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 11
+                                    Juni 2023</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-trophy me-1"></i> Skala
+                                    Nasional</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-user me-1"></i> LATIFFA
+                                    AZZAHRA RAHMAN, XI IPS ANGGITA BERLIAN PRATAMA XI IPS</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-university me-1"></i>
+                                    PENYELENGGARA: UMM, MALANG</small></p>
+                            <a href="#" class="btn btn-outline-success btn-sm mt-2">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4 shadow-sm border-0">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-4">
+                        <img src="asset/Selamat kpd Siswa-i dan Bpk-Ibu pembimbing SMKN 5 Telkom atas prestasinya Juara harapan 3 pada F.jpg" class="img-fluid rounded-start" alt="Prestasi Panahan">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-warning">juara III dalam ajang O2SN Cabor Atletik jenjang SMA/SMK/MA Kota Banda Aceh...</h5>
+                            <p class="card-text"><small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 10
+                                    Juni 2023</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-trophy me-1"></i> Skala
+                                    Provinsi</small></p>
+                            <p class="card-text"><small class="text-muted"><i class="fas fa-user me-1"></i> [Nama Siswa
+                                    Berprestasi]</small></p>
+                            <a href="#" class="btn btn-outline-warning btn-sm mt-2">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Lihat Semua Prestasi</a>
+            </div>
+        </div>
+    </section>
+    <!-- ! ============================================================================================================================ -->
+    <!-- ! ============================================================== JURUSAN ===================================================== -->
+    <!-- ! ============================================================================================================================ -->
+    <!-- ! ============================================================================================================================ -->
+    <section id="jurusan" class="section-padding text-white" style="background-color: #57B3DF;">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Jurusan / Bidang Keahlian</h2>
+            <p class="text-center lead mb-5 text-muted">Pilih jurusan yang sesuai dengan minat dan bakatmu untuk
+                masa
+                depan yang gemilang.</p>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                <div class="col">
+                    <a href="jurusan-rpl.html" class="text-decoration-none">
+                        <div class="card h-100 shadow-lg border-0 bg-white text-dark text-center py-4">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                <img src="/asset/rpl.png" alt="" class="mb-3">
+                                <h5 class="card-title fw-bold">Rekayasa Perangkat Lunak (RPL)</h5>
+                                <p class="card-text small text-muted">Pengembangan aplikasi, website, dan sistem
+                                    informasi.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="jurusan-multimedia.html" class="text-decoration-none">
+                        <div class="card h-100 shadow-lg border-0 bg-white text-dark text-center py-4">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                <img src="/asset/mm.png" alt="" class="mb-3">
+                                <h5 class="card-title fw-bold">Multimedia (MM)</h5>
+                                <p class="card-text small text-muted">Desain grafis, animasi, video editing, dan
+                                    fotografi.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="jurusan-tja.html" class="text-decoration-none">
+                        <div class="card h-100 shadow-lg border-0 bg-white text-dark text-center py-4">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                <img src="/asset/tja.png" alt="" class="mb-3">
+                                <h5 class="card-title fw-bold">Teknik Jaringan Akses (TJA)</h5>
+                                <p class="card-text small text-muted">Instalasi & pemeliharaan jaringan
+                                    telekomunikasi.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Kontak Kami</h2>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Alamat Kami</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead"><strong>SMK 5 Telkom Banda Aceh</strong></p>
+                            <p>Kota Baru, Kec. Kuta Alam, Kota Banda Aceh, Aceh</p>
+                            <p><strong>Telepon:</strong> 0651-7552314</p>
+                            <p><strong>Email:</strong> smkn5telkombandaaceh@gmail.com</p>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.9789399898246!2d95.3217434147775!3d5.547192495914611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30403759a2f1c8e1%3A0x6b7b2b8e8f8f8f8f!2sBanda%20Aceh%2C%20Aceh%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1678888888888!5m2!1sen!2sid"
+                                    width="100%" height="300" style="border:0;" allowfullscreen=""
+                                    loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Terhubung dengan Kami</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5>Media Sosial:</h5>
+                            <div class="d-flex mb-4">
+                                <a href="[Link Facebook]" class="btn btn-outline-primary me-2"><i
+                                        class="fab fa-facebook-f"></i> Facebook</a>
+                                <a href="[Link Instagram]" class="btn btn-outline-danger me-2"><i
+                                        class="fab fa-instagram"></i> Instagram</a>
+                                <a href="[Link Twitter/X]" class="btn btn-outline-info"><i class="fab fa-twitter"></i>
+                                    Twitter</a>
+                            </div>
+
+                            <h5 class="mt-4">Kirim Pesan:</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="namaLengkap" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subjek" class="form-label">Subjek</label>
+                                    <input type="text" class="form-control" id="subjek" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pesan" class="form-label">Pesan</label>
+                                    <textarea class="form-control" id="pesan" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2025 SMK 5 Telkom Banda Aceh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const topbar = document.getElementById('topbar');
+            const mainNavbar = document = document.getElementById('mainNavbar');
+            const heroSection = document.getElementById('beranda');
+            const body = document.body; // Ambil referensi body
+
+            // Function to adjust padding-top of the first section to avoid content hiding under fixed navbar
+            function adjustFirstSectionPadding() {
+                if (heroSection && mainNavbar) {
+                    // Di awal, navbar berada di top: 0. Jika topbar muncul, navbar akan digeser ke bawah.
+                    // Kita perlu menyesuaikan padding hero section dengan tinggi total navbar (topbar + mainNavbar)
+                    if (body.classList.contains('scrolled-active')) {
+                        heroSection.style.paddingTop = (topbar.offsetHeight + mainNavbar.offsetHeight) + 'px';
+                    } else {
+                        heroSection.style.paddingTop = mainNavbar.offsetHeight + 'px';
+                    }
+                }
+            }
+
+            // Adjust padding on load (initially just mainNavbar height)
+            adjustFirstSectionPadding();
+            // Adjust padding on window resize (optional, but good for responsiveness)
+            window.addEventListener('resize', adjustFirstSectionPadding);
+
+
+            window.addEventListener('scroll', function () {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Define the scroll threshold for activation
+                // This threshold determines when the scroll effect kicks in
+                const scrollThreshold = 50; // You can adjust this value as needed
+
+                if (scrollTop > scrollThreshold) {
+                    if (!body.classList.contains('scrolled-active')) {
+                        body.classList.add('scrolled-active');
+                        // Saat discroll, topbar muncul, navbar digeser ke bawah topbar
+                        mainNavbar.style.top = topbar.offsetHeight + 'px';
+                        // Perbarui padding hero section jika sudah aktif
+                        adjustFirstSectionPadding();
+                    }
+                } else {
+                    if (body.classList.contains('scrolled-active')) {
+                        body.classList.remove('scrolled-active');
+                        // Saat kembali ke atas, navbar kembali ke top 0
+                        mainNavbar.style.top = '0px';
+                        // Perbarui padding hero section jika sudah tidak aktif
+                        adjustFirstSectionPadding();
+                    }
+                }
+            });
+        });
+
+        // Optional JavaScript for smooth scrolling or dynamic content loading
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const mainNavbar = document.getElementById('mainNavbar');
+                const topbar = document.getElementById('topbar');
+                const body = document.body;
+
+                if (targetElement && mainNavbar) {
+                    let offset = mainNavbar.offsetHeight;
+                    // Jika scrolled-active, tambahkan tinggi topbar ke offset
+                    if (body.classList.contains('scrolled-active')) {
+                        offset += topbar.offsetHeight;
+                    }
+
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // Example of simple form submission handling with JavaScript (client-side)
+        document.querySelector('#kontak form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const nama = document.getElementById('namaLengkap').value;
+            const email = document.getElementById('email').value;
+            const subjek = document.getElementById('subjek').value;
+            const pesan = document.getElementById('pesan').value;
+
+            if (nama && email && subjek && pesan) {
+                alert(`Pesan dari ${nama} dengan subjek "${subjek}" telah terkirim.\nIsi Pesan: "${pesan}"`);
+                // In a real application, you would send this data to a server using fetch() or XMLHttpRequest
+                this.reset(); // Clear the form
+            } else {
+                alert('Mohon lengkapi semua kolom formulir.');
+            }
+        });
+    </script>
+</body>
+
+</html>
